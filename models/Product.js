@@ -92,20 +92,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         default: 'gram'
     },
-
-    // Media
-    images: {
-        type: [String],
-        required: [true, 'Produk harus memiliki minimal 1 gambar'],
-        validate: {
-            validator: function (array) {
-                return array.length > 0;
-            },
-            message: 'Produk harus memiliki minimal 1 gambar'
-        }
-    },
-
-    // Product Specifications
+    images: [String],
     materials: {
         type: [String]
     },
@@ -138,7 +125,6 @@ const productSchema = new mongoose.Schema({
         type: [String]
     },
 
-    // Ratings & Reviews
     rating: {
         type: Number,
         default: 0,

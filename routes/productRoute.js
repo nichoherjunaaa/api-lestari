@@ -16,6 +16,11 @@ import Product from '../models/Product.js';
 
 const router = express.Router();
 
+
+router.get('/', getAllProducts);
+router.get('/seller/:sellerId', getProductsBySeller);
+router.get('/product-top', getTopProducts);
+
 // Route yang diproteksi untuk semua user yang login
 router.use(protect);
 
@@ -37,8 +42,5 @@ router.route('/:id')
     deleteProduct
   );
 
-router.get('/', getAllProducts);
-router.get('/seller/:sellerId', getProductsBySeller);
-router.get('/product-top', getTopProducts);
 
 export default router;

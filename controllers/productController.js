@@ -88,7 +88,7 @@ export const updateProduct = catchAsync(async (req, res, next) => {
     }
 
     // Check if user is product owner or admin
-    if (product.seller.toString() !== req.user.id && req.user.role !== 'admin') {
+    if (product.seller !== req.user.id && req.user.role !== 'seller') {
         return next(new AppError('Anda tidak memiliki izin untuk mengupdate produk ini', 403));
     }
 
